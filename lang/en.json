@@ -46,6 +46,14 @@
             "tooltipOffsetY": {
                 "Name": "Elevation Tooltip Offset Y",
                 "Hint": "Fine-tune the elevation tooltip's vertical position, in pixels, from its selected anchor (or from Foundry's default placement)."
+            },
+            "fadeUnpreparedSpells": {
+                "Name": "Fade Unprepared Spells",
+                "Hint": "On a D&D 5e character sheet, dim spells that require preparation but aren't currently prepared. Cantrips, always-prepared, and at-will spells are never dimmed."
+            },
+            "unpreparedSpellOpacity": {
+                "Name": "Unprepared Spell Opacity",
+                "Hint": "How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more)."
             }
         },
         "Menus": {
@@ -58,6 +66,11 @@
                 "Name": "Elevation Tooltip Settings",
                 "Label": "Elevation Tooltip Settings",
                 "Hint": "Configure the elevation tooltip's scale and position."
+            },
+            "spellFade": {
+                "Name": "Spell Fade Settings",
+                "Label": "Spell Fade Settings",
+                "Hint": "Configure fading of unprepared spells on D&D 5e character sheets."
             }
         },
         "TokenConfig": {

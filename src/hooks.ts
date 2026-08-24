@@ -3,6 +3,9 @@ import { NAMEPLATE_SETTINGS, NAMEPLATE_TOKEN_FLAGS } from "./features/nameplate/
 import { NameplateFitter } from "./features/nameplate/nameplate-fitter";
 import { NameplateSettingsMenu } from "./features/nameplate/settings-menu";
 import { injectTokenConfigField } from "./features/nameplate/token-config";
+import { SPELL_FADE_SETTINGS } from "./features/spell-fade/constants";
+import { SpellFadeSettingsMenu } from "./features/spell-fade/settings-menu";
+import { SpellFader } from "./features/spell-fade/spell-fader";
 import { TOOLTIP_SETTINGS } from "./features/tooltip/constants";
 import { TooltipSettingsMenu } from "./features/tooltip/settings-menu";
 import { TooltipPositioner } from "./features/tooltip/tooltip-positioner";
@@ -10,7 +13,7 @@ import { registerModuleSettings } from "./settings";
 
 Hooks.once("init", () => {
     registerModuleSettings(
-        { ...NAMEPLATE_SETTINGS, ...TOOLTIP_SETTINGS },
+        { ...NAMEPLATE_SETTINGS, ...TOOLTIP_SETTINGS, ...SPELL_FADE_SETTINGS },
         {
             [NAMEPLATE_SETTINGS.ENABLED.key]: () => NameplateFitter.refreshAll(),
             [NAMEPLATE_SETTINGS.MIN_FONT_SIZE.key]: () => NameplateFitter.refreshAll(),
@@ -20,7 +23,9 @@ Hooks.once("init", () => {
             [TOOLTIP_SETTINGS.TOOLTIP_SCALE.key]: () => refreshAllTooltips(),
             [TOOLTIP_SETTINGS.TOOLTIP_ANCHOR.key]: () => refreshAllTooltips(),
             [TOOLTIP_SETTINGS.TOOLTIP_OFFSET_X.key]: () => refreshAllTooltips(),
-            [TOOLTIP_SETTINGS.TOOLTIP_OFFSET_Y.key]: () => refreshAllTooltips()
+            [TOOLTIP_SETTINGS.TOOLTIP_OFFSET_Y.key]: () => refreshAllTooltips(),
+            [SPELL_FADE_SETTINGS.ENABLED.key]: () => SpellFader.apply(),
+            [SPELL_FADE_SETTINGS.OPACITY.key]: () => SpellFader.apply()
         }
     );
 
@@ -42,6 +47,15 @@ Hooks.once("init", () => {
         restricted: true
     });
 
+    game.settings.registerMenu(MODULE_ID, "spellFadeSettingsMenu", {
+        name: "imaginaryfriend-toolkit.Menus.spellFade.Name",
+        label: "imaginaryfriend-toolkit.Menus.spellFade.Label",
+        hint: "imaginaryfriend-toolkit.Menus.spellFade.Hint",
+        icon: "fa-solid fa-wand-sparkles",
+        type: SpellFadeSettingsMenu,
+        restricted: false
+    });
+
     // Wrapping the real _refreshNameplate/_refreshTooltip methods (rather than
     // relying on the public refreshToken Hook + renderFlags.set(), which is
     // ticker-deferred and races against core's own cascading refreshes)
@@ -49,6 +63,11 @@ Hooks.once("init", () => {
     // rebuilds the nameplate/tooltip.
     NameplateFitter.patchTokenPrototype();
     TooltipPositioner.patchTokenPrototype();
+
+    // Client-scope settings are already readable at this point, so applying
+    // immediately (rather than waiting for "ready") avoids an unstyled flash
+    // on the very first sheet render.
+    SpellFader.apply();
 });
 
 function forceTooltipRefresh(token: Token): void {

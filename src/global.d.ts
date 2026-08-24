@@ -16,6 +16,8 @@ declare module "fvtt-types/configuration" {
         "imaginaryfriend-toolkit.tooltipAnchor": string;
         "imaginaryfriend-toolkit.tooltipOffsetX": number;
         "imaginaryfriend-toolkit.tooltipOffsetY": number;
+        "imaginaryfriend-toolkit.fadeUnpreparedSpells": boolean;
+        "imaginaryfriend-toolkit.unpreparedSpellOpacity": number;
     }
 
     interface FlagConfig {

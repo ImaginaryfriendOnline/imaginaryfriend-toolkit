@@ -20,11 +20,20 @@ features originally shipped as separate modules, starting with
 - Scale the elevation tooltip's text independently of the rest of the UI.
 - Reposition the elevation tooltip relative to the token, with anchor presets (top/bottom left/center/right, center) plus fine X/Y pixel offsets. Defaults to Foundry's own placement until a preset is chosen.
 
+### Fade Unprepared Spells (D&D 5e)
+
+- On a D&D 5e character sheet, dims spells that require preparation but aren't currently prepared, so your prepared spells stand out at a glance.
+- Cantrips, at-will spells, and always-prepared spells are never dimmed — only spells the system's own "prepare" toggle applies to.
+- Pure CSS-driven (no sheet re-rendering), so it stays in sync with the sheet automatically.
+- Configurable fade amount; each player toggles it for their own view.
+
 ## ⚙️ Settings
 
 Settings are grouped by feature. Each group is a submenu button in
-**Configure Settings → Imaginaryfriend's Toolkit** (GM-only) rather than one
-long flat list.
+**Configure Settings → Imaginaryfriend's Toolkit** rather than one long flat
+list. Nameplate and Elevation Tooltip settings are world-scoped (GM-only,
+apply to everyone); Spell Fade settings are client-scoped (each player sets
+their own).
 
 ### Nameplate Settings
 
@@ -49,6 +58,15 @@ auto-fit regardless of the world setting above.
 | Elevation Tooltip Offset X | Fine-tunes the elevation tooltip's horizontal position, in pixels, from its selected anchor (or from Foundry's default placement). | 0 | -50–50 |
 | Elevation Tooltip Offset Y | Fine-tunes the elevation tooltip's vertical position, in pixels, from its selected anchor (or from Foundry's default placement). | 0 | -50–50 |
 
+### Spell Fade Settings
+
+*(D&D 5e only, client-scoped — each player configures their own view.)*
+
+| Setting | Description | Default | Range / Choices |
+| --- | --- | --- | --- |
+| Fade Unprepared Spells | Dims spells that require preparation but aren't currently prepared. | On | — |
+| Unprepared Spell Opacity | How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more). | 0.4 | 0.1–1 |
+
 ## 🛠️ Development
 
 ```bash
@@ -71,7 +89,9 @@ https://github.com/ImaginaryfriendOnline/imaginaryfriend-toolkit/releases/latest
 
 ## ✅ Compatibility
 
-Foundry VTT v14. System-agnostic.
+Foundry VTT v14. Nameplate auto-fit and elevation tooltip positioning are
+system-agnostic. Fade Unprepared Spells targets the D&D 5e system's character
+sheet specifically and has no effect on other systems.
 
 ## 📚 Credits
 

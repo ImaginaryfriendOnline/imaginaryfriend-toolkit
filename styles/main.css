@@ -1,3 +1,9 @@
 .token-names-form-group {
     margin-top: 0.5rem;
 }
+
+body.imaginaryfriend-toolkit-fade-unprepared .items-list .item:has(
+    > .item-row .item-controls .item-control[data-action="prepare"]:not(.active)
+) {
+    opacity: var(--imaginaryfriend-toolkit-unprepared-opacity, 0.4);
+}
