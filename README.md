@@ -22,15 +22,32 @@ features originally shipped as separate modules, starting with
 
 ## ⚙️ Settings
 
-- **Enable Nameplate Auto-Fit** — master on/off toggle for the width-fitting behavior (default: on).
-- **Minimum Font Size** — the smallest size a nameplate will shrink to before wrapping or truncating instead.
-- **Font Shrink Step** — how many pixels to reduce the font size by on each shrink attempt.
-- **Color Nameplate by Disposition** — colors nameplate text using the token's disposition color (default: off).
-- **Maximum Nameplate Lines** — caps how many lines a wrapped nameplate may span before the last line is truncated.
-- Per-token **Disable Nameplate Auto-Fit** checkbox, found in Token Configuration.
-- **Elevation Tooltip Scale** — scales the elevation tooltip's text.
-- **Elevation Tooltip Position** — anchor preset for the elevation tooltip.
-- **Elevation Tooltip Offset X/Y** — fine-tune the tooltip's position in pixels.
+Settings are grouped by feature. Each group is a submenu button in
+**Configure Settings → Imaginaryfriend's Toolkit** (GM-only) rather than one
+long flat list.
+
+### Nameplate Settings
+
+| Setting | Description | Default | Range / Choices |
+| --- | --- | --- | --- |
+| Enable Nameplate Auto-Fit | Master on/off toggle for the width-fitting behavior. | On | — |
+| Minimum Font Size | The smallest font size nameplates may shrink to before wrapping or truncating instead. | 16 | 8–48 |
+| Font Shrink Step | How many pixels to reduce the nameplate font size by on each shrink attempt. | 2 | 1–8 |
+| Color Nameplate by Disposition | Colors nameplate text using the token's disposition color (hostile, neutral, friendly, or secret). | Off | — |
+| Maximum Nameplate Lines | The maximum number of lines a wrapped nameplate may span before the last line is truncated with an ellipsis. | 3 | 1–10 |
+
+Additionally, each token has its own **Disable Nameplate Auto-Fit** checkbox
+in Token Configuration (under the Identity tab), to opt a single token out of
+auto-fit regardless of the world setting above.
+
+### Elevation Tooltip Settings
+
+| Setting | Description | Default | Range / Choices |
+| --- | --- | --- | --- |
+| Elevation Tooltip Scale | Scales the elevation tooltip's text. | 1 | 0.5–3 |
+| Elevation Tooltip Position | Where the elevation tooltip appears relative to the token. "Default" leaves Foundry's own placement untouched. | Default (Foundry) | Default (Foundry), Top Left, Top Center, Top Right, Bottom Left, Bottom Center, Bottom Right, Center |
+| Elevation Tooltip Offset X | Fine-tunes the elevation tooltip's horizontal position, in pixels, from its selected anchor (or from Foundry's default placement). | 0 | -50–50 |
+| Elevation Tooltip Offset Y | Fine-tunes the elevation tooltip's vertical position, in pixels, from its selected anchor (or from Foundry's default placement). | 0 | -50–50 |
 
 ## 🛠️ Development
 

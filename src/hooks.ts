@@ -1,8 +1,10 @@
 import { MODULE_ID } from "./constants";
 import { NAMEPLATE_SETTINGS, NAMEPLATE_TOKEN_FLAGS } from "./features/nameplate/constants";
 import { NameplateFitter } from "./features/nameplate/nameplate-fitter";
+import { NameplateSettingsMenu } from "./features/nameplate/settings-menu";
 import { injectTokenConfigField } from "./features/nameplate/token-config";
 import { TOOLTIP_SETTINGS } from "./features/tooltip/constants";
+import { TooltipSettingsMenu } from "./features/tooltip/settings-menu";
 import { TooltipPositioner } from "./features/tooltip/tooltip-positioner";
 import { registerModuleSettings } from "./settings";
 
@@ -21,6 +23,24 @@ Hooks.once("init", () => {
             [TOOLTIP_SETTINGS.TOOLTIP_OFFSET_Y.key]: () => refreshAllTooltips()
         }
     );
+
+    game.settings.registerMenu(MODULE_ID, "nameplateSettingsMenu", {
+        name: "imaginaryfriend-toolkit.Menus.nameplate.Name",
+        label: "imaginaryfriend-toolkit.Menus.nameplate.Label",
+        hint: "imaginaryfriend-toolkit.Menus.nameplate.Hint",
+        icon: "fa-solid fa-tag",
+        type: NameplateSettingsMenu,
+        restricted: true
+    });
+
+    game.settings.registerMenu(MODULE_ID, "tooltipSettingsMenu", {
+        name: "imaginaryfriend-toolkit.Menus.tooltip.Name",
+        label: "imaginaryfriend-toolkit.Menus.tooltip.Label",
+        hint: "imaginaryfriend-toolkit.Menus.tooltip.Hint",
+        icon: "fa-solid fa-arrows-up-down-left-right",
+        type: TooltipSettingsMenu,
+        restricted: true
+    });
 
     // Wrapping the real _refreshNameplate/_refreshTooltip methods (rather than
     // relying on the public refreshToken Hook + renderFlags.set(), which is

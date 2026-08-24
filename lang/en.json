@@ -48,6 +48,18 @@
                 "Hint": "Fine-tune the elevation tooltip's vertical position, in pixels, from its selected anchor (or from Foundry's default placement)."
             }
         },
+        "Menus": {
+            "nameplate": {
+                "Name": "Nameplate Settings",
+                "Label": "Nameplate Settings",
+                "Hint": "Configure nameplate auto-fit sizing, wrapping, and disposition coloring."
+            },
+            "tooltip": {
+                "Name": "Elevation Tooltip Settings",
+                "Label": "Elevation Tooltip Settings",
+                "Hint": "Configure the elevation tooltip's scale and position."
+            }
+        },
         "TokenConfig": {
             "DisableAutoFit": {
                 "Name": "Disable Nameplate Auto-Fit",
