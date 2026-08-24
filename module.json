@@ -1,0 +1,34 @@
+{
+    "id": "imaginaryfriend-toolkit",
+    "title": "Imaginaryfriend's Toolkit",
+    "description": "<p>A growing collection of Foundry VTT quality-of-life modules. Currently includes: nameplate auto-fit (shrinks, wraps, or truncates token nameplates so they never overflow the token, with an optional disposition-based color mode) and elevation tooltip scale/position tweaks.</p>",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Imaginaryfriend",
+            "email": "imaginaryfriendonline@gmail.com",
+            "url": "https://github.com/ImaginaryfriendOnline"
+        }
+    ],
+    "url": "https://github.com/ImaginaryfriendOnline/imaginaryfriend-toolkit",
+    "manifest": "https://github.com/ImaginaryfriendOnline/imaginaryfriend-toolkit/releases/latest/download/module.json",
+    "download": "https://github.com/ImaginaryfriendOnline/imaginaryfriend-toolkit/releases/latest/download/module.zip",
+    "compatibility": {
+        "minimum": "14",
+        "verified": "14",
+        "maximum": "14"
+    },
+    "esmodules": [
+        "scripts/main.js"
+    ],
+    "styles": [
+        "styles/main.css"
+    ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ]
+}

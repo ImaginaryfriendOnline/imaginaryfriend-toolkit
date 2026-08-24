@@ -1,0 +1,58 @@
+{
+    "imaginaryfriend-toolkit": {
+        "Settings": {
+            "enabled": {
+                "Name": "Enable Nameplate Auto-Fit",
+                "Hint": "Automatically shrink, wrap, or truncate token nameplates so they never exceed the width of their token."
+            },
+            "minFontSize": {
+                "Name": "Minimum Font Size",
+                "Hint": "The smallest font size nameplates may shrink to before wrapping or truncating instead."
+            },
+            "fontShrinkStep": {
+                "Name": "Font Shrink Step",
+                "Hint": "How many pixels to reduce the nameplate font size by on each shrink attempt."
+            },
+            "colorByDisposition": {
+                "Name": "Color Nameplate by Disposition",
+                "Hint": "Color nameplate text using the token's disposition color (hostile, neutral, friendly, or secret)."
+            },
+            "maxLines": {
+                "Name": "Maximum Nameplate Lines",
+                "Hint": "The maximum number of lines a wrapped nameplate may span before the last line is truncated with an ellipsis."
+            },
+            "tooltipScale": {
+                "Name": "Elevation Tooltip Scale",
+                "Hint": "Scales the elevation tooltip's text."
+            },
+            "tooltipAnchor": {
+                "Name": "Elevation Tooltip Position",
+                "Hint": "Where the elevation tooltip appears relative to the token. \"Default\" leaves Foundry's own placement untouched.",
+                "Choices": {
+                    "default": "Default (Foundry)",
+                    "topLeft": "Top Left",
+                    "topCenter": "Top Center",
+                    "topRight": "Top Right",
+                    "bottomLeft": "Bottom Left",
+                    "bottomCenter": "Bottom Center",
+                    "bottomRight": "Bottom Right",
+                    "center": "Center"
+                }
+            },
+            "tooltipOffsetX": {
+                "Name": "Elevation Tooltip Offset X",
+                "Hint": "Fine-tune the elevation tooltip's horizontal position, in pixels, from its selected anchor (or from Foundry's default placement)."
+            },
+            "tooltipOffsetY": {
+                "Name": "Elevation Tooltip Offset Y",
+                "Hint": "Fine-tune the elevation tooltip's vertical position, in pixels, from its selected anchor (or from Foundry's default placement)."
+            }
+        },
+        "TokenConfig": {
+            "DisableAutoFit": {
+                "Name": "Disable Nameplate Auto-Fit",
+                "Hint": "Prevent this token's nameplate from being automatically shrunk, wrapped, or truncated to fit its width."
+            }
+        }
+    }
+}
