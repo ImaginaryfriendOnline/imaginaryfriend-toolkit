@@ -1,3 +1,7 @@
+##### 1.1.0
+
+- Added a Chat feature group, starting with Chat Notification Sound: plays a sound whenever a chat message arrives that wasn't sent by you (skips your own messages and whispers you aren't the recipient of), with a file-picker-backed setting to choose the sound. Client-scoped per player, configured in a new Chat Settings submenu.
+
 ##### 1.0.0
 
 - Initial release. Ported from [token-names](https://github.com/ImaginaryfriendOnline/token-names) v1.4.0:

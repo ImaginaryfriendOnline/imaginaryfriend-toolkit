@@ -7,6 +7,7 @@ export interface SettingFieldDef {
     type: unknown;
     choices?: Record<string, string>;
     range?: { min: number; max: number; step: number };
+    filePicker?: foundry.applications.apps.FilePicker.Type;
 }
 
 const settingsGet = game.settings.get as (namespace: string, key: string) => unknown;
@@ -58,6 +59,14 @@ export abstract class ToolkitSettingsMenu extends foundry.applications.api.Appli
     }
 
     private _buildInput(field: SettingFieldDef, value: unknown): HTMLElement {
+        if (field.filePicker) {
+            return foundry.applications.elements.HTMLFilePickerElement.create({
+                type: field.filePicker,
+                name: field.key,
+                value: String(value)
+            });
+        }
+
         if (field.type === Boolean) {
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";

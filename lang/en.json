@@ -54,6 +54,14 @@
             "unpreparedSpellOpacity": {
                 "Name": "Unprepared Spell Opacity",
                 "Hint": "How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more)."
+            },
+            "chatNotificationSoundEnabled": {
+                "Name": "Play Sound on Incoming Chat Messages",
+                "Hint": "Play a sound whenever a chat message arrives that wasn't sent by you."
+            },
+            "chatNotificationSoundPath": {
+                "Name": "Notification Sound",
+                "Hint": "The sound file to play for incoming chat messages."
             }
         },
         "Menus": {
@@ -71,6 +79,11 @@
                 "Name": "Spell Fade Settings",
                 "Label": "Spell Fade Settings",
                 "Hint": "Configure fading of unprepared spells on D&D 5e character sheets."
+            },
+            "chat": {
+                "Name": "Chat Settings",
+                "Label": "Chat Settings",
+                "Hint": "Configure chat notification behavior."
             }
         },
         "TokenConfig": {

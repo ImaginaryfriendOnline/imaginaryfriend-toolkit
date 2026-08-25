@@ -1,4 +1,7 @@
 import { MODULE_ID } from "./constants";
+import { ChatNotifier } from "./features/chat/chat-notifier";
+import { CHAT_SETTINGS } from "./features/chat/constants";
+import { ChatSettingsMenu } from "./features/chat/settings-menu";
 import { NAMEPLATE_SETTINGS, NAMEPLATE_TOKEN_FLAGS } from "./features/nameplate/constants";
 import { NameplateFitter } from "./features/nameplate/nameplate-fitter";
 import { NameplateSettingsMenu } from "./features/nameplate/settings-menu";
@@ -13,7 +16,7 @@ import { registerModuleSettings } from "./settings";
 
 Hooks.once("init", () => {
     registerModuleSettings(
-        { ...NAMEPLATE_SETTINGS, ...TOOLTIP_SETTINGS, ...SPELL_FADE_SETTINGS },
+        { ...NAMEPLATE_SETTINGS, ...TOOLTIP_SETTINGS, ...SPELL_FADE_SETTINGS, ...CHAT_SETTINGS },
         {
             [NAMEPLATE_SETTINGS.ENABLED.key]: () => NameplateFitter.refreshAll(),
             [NAMEPLATE_SETTINGS.MIN_FONT_SIZE.key]: () => NameplateFitter.refreshAll(),
@@ -53,6 +56,15 @@ Hooks.once("init", () => {
         hint: "imaginaryfriend-toolkit.Menus.spellFade.Hint",
         icon: "fa-solid fa-wand-sparkles",
         type: SpellFadeSettingsMenu,
+        restricted: false
+    });
+
+    game.settings.registerMenu(MODULE_ID, "chatSettingsMenu", {
+        name: "imaginaryfriend-toolkit.Menus.chat.Name",
+        label: "imaginaryfriend-toolkit.Menus.chat.Label",
+        hint: "imaginaryfriend-toolkit.Menus.chat.Hint",
+        icon: "fa-solid fa-bell",
+        type: ChatSettingsMenu,
         restricted: false
     });
 
@@ -106,3 +118,5 @@ Hooks.on("controlToken", (token: Token, controlled: boolean) => {
 
 Hooks.on("renderTokenConfig", (app, htmlElement: HTMLElement) => injectTokenConfigField(app, htmlElement));
 Hooks.on("renderPrototypeTokenConfig", (app, htmlElement: HTMLElement) => injectTokenConfigField(app, htmlElement));
+
+Hooks.on("createChatMessage", (message: ChatMessage) => ChatNotifier.onCreateMessage(message));

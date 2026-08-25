@@ -27,6 +27,13 @@ features originally shipped as separate modules, starting with
 - Pure CSS-driven (no sheet re-rendering), so it stays in sync with the sheet automatically.
 - Configurable fade amount; each player toggles it for their own view.
 
+### Chat Notification Sound
+
+- Plays a sound whenever a chat message arrives that wasn't sent by you.
+- Skips your own messages, and skips whispers you aren't the recipient of.
+- Choose your own sound file via a file picker; defaults to Foundry's built-in notification sound.
+- Client-scoped: each player configures their own sound and can turn it off.
+
 ## ⚙️ Settings
 
 Settings are grouped by feature. Each group is a submenu button in
@@ -66,6 +73,15 @@ auto-fit regardless of the world setting above.
 | --- | --- | --- | --- |
 | Fade Unprepared Spells | Dims spells that require preparation but aren't currently prepared. | On | — |
 | Unprepared Spell Opacity | How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more). | 0.4 | 0.1–1 |
+
+### Chat Settings
+
+*(Client-scoped — each player configures their own view.)*
+
+| Setting | Description | Default | Range / Choices |
+| --- | --- | --- | --- |
+| Play Sound on Incoming Chat Messages | Play a sound whenever a chat message arrives that wasn't sent by you. | On | — |
+| Notification Sound | The sound file to play for incoming chat messages. | Foundry's default notification sound | Any audio file, via file picker |
 
 ## 🛠️ Development
 

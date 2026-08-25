@@ -1,8 +1,8 @@
 {
     "id": "imaginaryfriend-toolkit",
     "title": "Imaginaryfriend's Toolkit",
-    "description": "<p>A growing collection of Foundry VTT quality-of-life modules. Currently includes: nameplate auto-fit (shrinks, wraps, or truncates token nameplates so they never overflow the token, with an optional disposition-based color mode), elevation tooltip scale/position tweaks, and fading unprepared spells on D&amp;D 5e character sheets.</p>",
-    "version": "1.0.0",
+    "description": "<p>A growing collection of Foundry VTT quality-of-life modules. Currently includes: nameplate auto-fit (shrinks, wraps, or truncates token nameplates so they never overflow the token, with an optional disposition-based color mode), elevation tooltip scale/position tweaks, fading unprepared spells on D&amp;D 5e character sheets, and a chat notification sound for incoming messages.</p>",
+    "version": "1.1.0",
     "authors": [
         {
             "name": "Imaginaryfriend",
