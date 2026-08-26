@@ -1,3 +1,7 @@
+##### 1.1.1
+
+- Fixed a bug where the module would fail to load entirely (no settings, no menus, no features active) with a console error `Cannot read properties of undefined (reading 'get')` at `main.js:57`. `ToolkitSettingsMenu` was caching `game.settings.get`/`game.settings.set` into module-level constants, which are evaluated the instant the esmodule script loads — before Foundry has finished building the `game.settings` object, ahead of the `init` hook. The lookups are now deferred to call time instead.
+
 ##### 1.1.0
 
 - Added a Chat feature group, starting with Chat Notification Sound: plays a sound whenever a chat message arrives that wasn't sent by you (skips your own messages and whispers you aren't the recipient of), with a file-picker-backed setting to choose the sound. Client-scoped per player, configured in a new Chat Settings submenu.

@@ -10,8 +10,26 @@ export interface SettingFieldDef {
     filePicker?: foundry.applications.apps.FilePicker.Type;
 }
 
-const settingsGet = game.settings.get as (namespace: string, key: string) => unknown;
-const settingsSet = game.settings.set as (namespace: string, key: string, value: unknown) => Promise<unknown>;
+// NOTE: intentionally not cached into module-level consts. Foundry evaluates
+// module esmodule scripts before game.settings exists (it's only built during
+// Foundry's own init sequence, ahead of Hooks.once("init") firing), so
+// grabbing game.settings.get/set at import time throws
+// "Cannot read properties of undefined (reading 'get')" and aborts this
+// module's evaluation entirely - taking the rest of the bundle down with it,
+// since hooks.ts transitively imports this file. Call through game.settings
+// directly at the point of use instead, deferring the lookup until these
+// methods actually run (well after init).
+function settingsGet(namespace: string, key: string): unknown {
+    return (game.settings.get as (namespace: string, key: string) => unknown)(namespace, key);
+}
+
+function settingsSet(namespace: string, key: string, value: unknown): Promise<unknown> {
+    return (game.settings.set as (namespace: string, key: string, value: unknown) => Promise<unknown>)(
+        namespace,
+        key,
+        value
+    );
+}
 
 /**
  * A settings submenu that renders one form group per field, built generically
