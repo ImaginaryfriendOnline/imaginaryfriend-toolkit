@@ -1,3 +1,8 @@
+##### 1.3.0
+
+- Added a Miscellaneous feature group, starting with a Condition Filter: adds a text box to the top of the token HUD's condition (status effect) icon grid to filter down to matching conditions as you type. Client-scoped, on by default.
+- Removed the Chat Notification Sound feature and its Chat Settings submenu.
+
 ##### 1.2.0
 
 - Fixed a bug where the Nameplate Settings submenu would crash with `"imaginaryfriend-toolkit.enabled" is not a registered game setting`. The `init` hook merged every feature's setting definitions into one object via object spread; Nameplate and Spell Fade each define a property named `ENABLED`, so the spread silently dropped Nameplate's entry and its `enabled` setting was never registered. Settings groups are now registered independently instead of merged.

@@ -1,14 +1,14 @@
 import { SettingFieldDef, ToolkitSettingsMenu } from "../../settings-menu";
-import { CHAT_SETTINGS } from "./constants";
+import { MISC_SETTINGS } from "./constants";
 
-export class ChatSettingsMenu extends ToolkitSettingsMenu {
+export class MiscSettingsMenu extends ToolkitSettingsMenu {
     static override DEFAULT_OPTIONS = {
-        id: "imaginaryfriend-toolkit-chat-settings",
+        id: "imaginaryfriend-toolkit-misc-settings",
         tag: "form",
         classes: ["imaginaryfriend-toolkit-settings-menu"],
         window: {
-            title: "imaginaryfriend-toolkit.Menus.chat.Name",
-            icon: "fa-solid fa-bell"
+            title: "imaginaryfriend-toolkit.Menus.misc.Name",
+            icon: "fa-solid fa-ellipsis"
         },
         position: {
             width: 480
@@ -20,6 +20,6 @@ export class ChatSettingsMenu extends ToolkitSettingsMenu {
     };
 
     protected override fields(): SettingFieldDef[] {
-        return Object.values(CHAT_SETTINGS);
+        return Object.values(MISC_SETTINGS);
     }
 }

@@ -55,13 +55,9 @@
                 "Name": "Unprepared Spell Opacity",
                 "Hint": "How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more)."
             },
-            "chatNotificationSoundEnabled": {
-                "Name": "Play Sound on Incoming Chat Messages",
-                "Hint": "Play a sound whenever a chat message arrives that wasn't sent by you."
-            },
-            "chatNotificationSoundPath": {
-                "Name": "Notification Sound",
-                "Hint": "The sound file to play for incoming chat messages."
+            "conditionFilterEnabled": {
+                "Name": "Enable Condition Filter",
+                "Hint": "Add a text filter to the top of the token HUD's condition (status effect) icon grid to quickly narrow down which icons are shown."
             }
         },
         "Menus": {
@@ -80,16 +76,21 @@
                 "Label": "Spell Fade Settings",
                 "Hint": "Configure fading of unprepared spells on D&D 5e character sheets."
             },
-            "chat": {
-                "Name": "Chat Settings",
-                "Label": "Chat Settings",
-                "Hint": "Configure chat notification behavior."
+            "misc": {
+                "Name": "Miscellaneous Settings",
+                "Label": "Miscellaneous Settings",
+                "Hint": "Configure miscellaneous quality-of-life tweaks."
             }
         },
         "TokenConfig": {
             "DisableAutoFit": {
                 "Name": "Disable Nameplate Auto-Fit",
                 "Hint": "Prevent this token's nameplate from being automatically shrunk, wrapped, or truncated to fit its width."
+            }
+        },
+        "TokenHud": {
+            "ConditionFilter": {
+                "Placeholder": "Filter conditions…"
             }
         }
     }

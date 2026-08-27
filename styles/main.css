@@ -30,6 +30,13 @@
     justify-content: center;
 }
 
+.imaginaryfriend-toolkit-condition-filter {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0.25rem;
+}
+
 body.imaginaryfriend-toolkit-fade-unprepared .items-list .item:has(
     > .item-row .item-controls .item-control[data-action="prepare"]:not(.active)
 ) {

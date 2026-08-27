@@ -18,8 +18,7 @@ declare module "fvtt-types/configuration" {
         "imaginaryfriend-toolkit.tooltipOffsetY": number;
         "imaginaryfriend-toolkit.fadeUnpreparedSpells": boolean;
         "imaginaryfriend-toolkit.unpreparedSpellOpacity": number;
-        "imaginaryfriend-toolkit.chatNotificationSoundEnabled": boolean;
-        "imaginaryfriend-toolkit.chatNotificationSoundPath": string;
+        "imaginaryfriend-toolkit.conditionFilterEnabled": boolean;
     }
 
     interface FlagConfig {

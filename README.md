@@ -27,12 +27,9 @@ features originally shipped as separate modules, starting with
 - Pure CSS-driven (no sheet re-rendering), so it stays in sync with the sheet automatically.
 - Configurable fade amount; each player toggles it for their own view.
 
-### Chat Notification Sound
+### Miscellaneous
 
-- Plays a sound whenever a chat message arrives that wasn't sent by you.
-- Skips your own messages, and skips whispers you aren't the recipient of.
-- Choose your own sound file via a file picker; defaults to Foundry's built-in notification sound.
-- Client-scoped: each player configures their own sound and can turn it off.
+- **Condition Filter**: adds a text box to the top of the token HUD's condition (status effect) icon grid, letting you type to filter down to matching conditions instead of scanning the whole grid. Client-scoped; each player can turn it off.
 
 ## ⚙️ Settings
 
@@ -74,14 +71,13 @@ auto-fit regardless of the world setting above.
 | Fade Unprepared Spells | Dims spells that require preparation but aren't currently prepared. | On | — |
 | Unprepared Spell Opacity | How transparent unprepared spells become (1 = fully opaque/no fade, lower values fade more). | 0.4 | 0.1–1 |
 
-### Chat Settings
+### Miscellaneous Settings
 
 *(Client-scoped — each player configures their own view.)*
 
 | Setting | Description | Default | Range / Choices |
 | --- | --- | --- | --- |
-| Play Sound on Incoming Chat Messages | Play a sound whenever a chat message arrives that wasn't sent by you. | On | — |
-| Notification Sound | The sound file to play for incoming chat messages. | Foundry's default notification sound | Any audio file, via file picker |
+| Enable Condition Filter | Adds a text filter to the top of the token HUD's condition icon grid. | On | — |
 
 ## 🛠️ Development
 
