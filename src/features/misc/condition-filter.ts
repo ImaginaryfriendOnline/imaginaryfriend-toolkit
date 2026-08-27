@@ -5,12 +5,14 @@ export function injectConditionFilter(_app: unknown, htmlElement: HTMLElement): 
     if (!game.settings.get(MODULE_ID, MISC_SETTINGS.CONDITION_FILTER_ENABLED.key)) return;
     if (htmlElement.querySelector(`.${MISC_CLASSES.CONDITION_FILTER_INPUT}`)) return;
 
-    const icons = Array.from(htmlElement.querySelectorAll<HTMLElement>(TOKEN_HUD_SELECTORS.STATUS_ICON));
-    const [firstIcon] = icons;
-    if (!firstIcon) return;
+    const palette = htmlElement.querySelector<HTMLElement>(TOKEN_HUD_SELECTORS.EFFECTS_PALETTE);
+    if (!palette) return;
 
-    const container = firstIcon.parentElement;
-    if (!container) return;
+    const containers = Array.from(palette.querySelectorAll<HTMLElement>(TOKEN_HUD_SELECTORS.EFFECT_CONTAINER));
+    if (containers.length === 0) return;
+
+    const wrapper = document.createElement("div");
+    wrapper.classList.add(MISC_CLASSES.CONDITION_FILTER_WRAPPER);
 
     const input = document.createElement("input");
     input.type = "text";
@@ -19,9 +21,9 @@ export function injectConditionFilter(_app: unknown, htmlElement: HTMLElement): 
 
     input.addEventListener("input", () => {
         const query = input.value.trim().toLowerCase();
-        for (const icon of icons) {
-            const label = (icon.getAttribute("title") ?? icon.getAttribute("aria-label") ?? "").toLowerCase();
-            icon.style.display = query && !label.includes(query) ? "none" : "";
+        for (const container of containers) {
+            const label = container.querySelector(TOKEN_HUD_SELECTORS.EFFECT_NAME)?.textContent?.trim().toLowerCase() ?? "";
+            container.style.display = query && !label.includes(query) ? "none" : "";
         }
     });
 
@@ -29,5 +31,6 @@ export function injectConditionFilter(_app: unknown, htmlElement: HTMLElement): 
     // while the player is typing into the filter box.
     input.addEventListener("keydown", (event) => event.stopPropagation());
 
-    container.insertAdjacentElement("beforebegin", input);
+    wrapper.appendChild(input);
+    palette.insertAdjacentElement("afterbegin", wrapper);
 }

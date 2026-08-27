@@ -30,11 +30,18 @@
     justify-content: center;
 }
 
+.imaginaryfriend-toolkit-condition-filter-wrapper {
+    flex: 1 0 100%;
+    grid-column: 1 / -1;
+    width: 100%;
+    order: -1;
+    margin-bottom: 0.5rem;
+}
+
 .imaginaryfriend-toolkit-condition-filter {
     display: block;
     width: 100%;
     box-sizing: border-box;
-    margin-bottom: 0.25rem;
 }
 
 body.imaginaryfriend-toolkit-fade-unprepared .items-list .item:has(

@@ -1,3 +1,7 @@
+##### 1.3.1
+
+- Fixed the token HUD condition filter: it read the icon's `title`/`aria-label` attribute for the condition name, but Foundry's HUD markup puts the name in a sibling `.effect-name` div, so every non-empty search hid all icons. It also anchored to the wrong element, landing outside the conditions popout instead of above the icon grid. Now filters by `.effect-name` text and inserts as the first row inside the actual `.palette[data-palette="effects"]` container.
+
 ##### 1.3.0
 
 - Added a Miscellaneous feature group, starting with a Condition Filter: adds a text box to the top of the token HUD's condition (status effect) icon grid to filter down to matching conditions as you type. Client-scoped, on by default.

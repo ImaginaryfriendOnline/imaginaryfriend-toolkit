@@ -11,9 +11,12 @@ export const MISC_SETTINGS = {
 } as const;
 
 export const TOKEN_HUD_SELECTORS = {
-    STATUS_ICON: "[data-status-id]"
+    EFFECTS_PALETTE: '[data-palette="effects"]',
+    EFFECT_CONTAINER: ".effect-container",
+    EFFECT_NAME: ".effect-name"
 } as const;
 
 export const MISC_CLASSES = {
+    CONDITION_FILTER_WRAPPER: "imaginaryfriend-toolkit-condition-filter-wrapper",
     CONDITION_FILTER_INPUT: "imaginaryfriend-toolkit-condition-filter"
 } as const;
