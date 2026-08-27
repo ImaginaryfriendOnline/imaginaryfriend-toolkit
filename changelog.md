@@ -1,3 +1,7 @@
+##### 1.3.4
+
+- Fixed the token HUD condition filter still not appearing. The effects palette's icon grid is populated lazily the first time it's opened, which doesn't re-fire the `renderTokenHUD` hook - so the one-shot injection attempt at render time ran before the grid existed and never got a second chance. Now watches the HUD with a `MutationObserver` and injects as soon as the icon grid appears.
+
 ##### 1.3.3
 
 - Fixed the token HUD condition filter never being created at all. The HUD's own toggle button for the effects palette also carries `data-palette="effects"`, so the selector matched two elements and the code picked whichever came first (the toggle button, which has no icon grid), bailing out silently. Now finds the actual palette by checking which match holds `.effect-container` children.
