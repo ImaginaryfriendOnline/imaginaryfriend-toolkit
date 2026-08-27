@@ -5,11 +5,14 @@ export function injectConditionFilter(_app: unknown, htmlElement: HTMLElement): 
     if (!game.settings.get(MODULE_ID, MISC_SETTINGS.CONDITION_FILTER_ENABLED.key)) return;
     if (htmlElement.querySelector(`.${MISC_CLASSES.CONDITION_FILTER_INPUT}`)) return;
 
-    const palette = htmlElement.querySelector<HTMLElement>(TOKEN_HUD_SELECTORS.EFFECTS_PALETTE);
+    // The HUD's toggle button for the effects palette also carries
+    // data-palette="effects", so more than one element can match - find the
+    // one that actually holds the icon grid rather than assuming the first match.
+    const candidates = Array.from(htmlElement.querySelectorAll<HTMLElement>(TOKEN_HUD_SELECTORS.EFFECTS_PALETTE));
+    const palette = candidates.find((candidate) => candidate.querySelector(TOKEN_HUD_SELECTORS.EFFECT_CONTAINER));
     if (!palette) return;
 
     const containers = Array.from(palette.querySelectorAll<HTMLElement>(TOKEN_HUD_SELECTORS.EFFECT_CONTAINER));
-    if (containers.length === 0) return;
 
     const wrapper = document.createElement("div");
     wrapper.classList.add(MISC_CLASSES.CONDITION_FILTER_WRAPPER);

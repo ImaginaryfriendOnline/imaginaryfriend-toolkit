@@ -1,3 +1,7 @@
+##### 1.3.3
+
+- Fixed the token HUD condition filter never being created at all. The HUD's own toggle button for the effects palette also carries `data-palette="effects"`, so the selector matched two elements and the code picked whichever came first (the toggle button, which has no icon grid), bailing out silently. Now finds the actual palette by checking which match holds `.effect-container` children.
+
 ##### 1.3.2
 
 - Fixed the token HUD condition filter input not appearing at all. It was previously inserted as an in-flow flex/grid row at the top of the icon grid, which depended on layout assumptions about the palette that didn't hold. It's now absolutely positioned, anchored to the palette's own top-left corner and floating above the icon grid at a fixed 200px width, independent of the grid's internal layout.
