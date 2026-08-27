@@ -2,6 +2,34 @@
     margin-top: 0.5rem;
 }
 
+.imaginaryfriend-toolkit-settings-menu .window-content {
+    padding: 1rem 1.25rem;
+}
+
+.imaginaryfriend-toolkit-settings-menu .form-group {
+    margin-bottom: 0.75rem;
+}
+
+.imaginaryfriend-toolkit-range-field {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.imaginaryfriend-toolkit-range-field input[type="range"] {
+    flex: 1;
+}
+
+.imaginaryfriend-toolkit-range-field input[type="number"] {
+    flex: 0 0 4.5rem;
+    width: 4.5rem;
+}
+
+.imaginaryfriend-toolkit-form-footer {
+    display: flex;
+    justify-content: center;
+}
+
 body.imaginaryfriend-toolkit-fade-unprepared .items-list .item:has(
     > .item-row .item-controls .item-control[data-action="prepare"]:not(.active)
 ) {

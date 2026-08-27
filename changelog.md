@@ -1,3 +1,9 @@
+##### 1.2.0
+
+- Fixed a bug where the Nameplate Settings submenu would crash with `"imaginaryfriend-toolkit.enabled" is not a registered game setting`. The `init` hook merged every feature's setting definitions into one object via object spread; Nameplate and Spell Fade each define a property named `ENABLED`, so the spread silently dropped Nameplate's entry and its `enabled` setting was never registered. Settings groups are now registered independently instead of merged.
+- Numeric settings (font size, shrink step, max lines, tooltip scale/offset, spell opacity) now show a slider alongside the number field, kept in sync in both directions.
+- Added spacing between fields and centered the Save Changes button in all settings submenus.
+
 ##### 1.1.1
 
 - Fixed a bug where the module would fail to load entirely (no settings, no menus, no features active) with a console error `Cannot read properties of undefined (reading 'get')` at `main.js:57`. `ToolkitSettingsMenu` was caching `game.settings.get`/`game.settings.set` into module-level constants, which are evaluated the instant the esmodule script loads — before Foundry has finished building the `game.settings` object, ahead of the `init` hook. The lookups are now deferred to call time instead.

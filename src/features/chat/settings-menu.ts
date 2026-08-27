@@ -5,6 +5,7 @@ export class ChatSettingsMenu extends ToolkitSettingsMenu {
     static override DEFAULT_OPTIONS = {
         id: "imaginaryfriend-toolkit-chat-settings",
         tag: "form",
+        classes: ["imaginaryfriend-toolkit-settings-menu"],
         window: {
             title: "imaginaryfriend-toolkit.Menus.chat.Name",
             icon: "fa-solid fa-bell"

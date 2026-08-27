@@ -5,6 +5,7 @@ export class NameplateSettingsMenu extends ToolkitSettingsMenu {
     static override DEFAULT_OPTIONS = {
         id: "imaginaryfriend-toolkit-nameplate-settings",
         tag: "form",
+        classes: ["imaginaryfriend-toolkit-settings-menu"],
         window: {
             title: "imaginaryfriend-toolkit.Menus.nameplate.Name",
             icon: "fa-solid fa-tag"

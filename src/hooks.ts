@@ -16,7 +16,7 @@ import { registerModuleSettings } from "./settings";
 
 Hooks.once("init", () => {
     registerModuleSettings(
-        { ...NAMEPLATE_SETTINGS, ...TOOLTIP_SETTINGS, ...SPELL_FADE_SETTINGS, ...CHAT_SETTINGS },
+        [NAMEPLATE_SETTINGS, TOOLTIP_SETTINGS, SPELL_FADE_SETTINGS, CHAT_SETTINGS],
         {
             [NAMEPLATE_SETTINGS.ENABLED.key]: () => NameplateFitter.refreshAll(),
             [NAMEPLATE_SETTINGS.MIN_FONT_SIZE.key]: () => NameplateFitter.refreshAll(),

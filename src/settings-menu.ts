@@ -114,12 +114,27 @@ export abstract class ToolkitSettingsMenu extends foundry.applications.api.Appli
             number.name = field.key;
             number.dataset.dtype = "Number";
             number.value = String(value);
-            if (field.range) {
-                number.min = String(field.range.min);
-                number.max = String(field.range.max);
-                number.step = String(field.range.step);
-            }
-            return number;
+
+            if (!field.range) return number;
+
+            number.min = String(field.range.min);
+            number.max = String(field.range.max);
+            number.step = String(field.range.step);
+
+            const range = document.createElement("input");
+            range.type = "range";
+            range.min = String(field.range.min);
+            range.max = String(field.range.max);
+            range.step = String(field.range.step);
+            range.value = String(value);
+
+            range.addEventListener("input", () => (number.value = range.value));
+            number.addEventListener("input", () => (range.value = number.value));
+
+            const wrapper = document.createElement("div");
+            wrapper.classList.add("imaginaryfriend-toolkit-range-field");
+            wrapper.append(range, number);
+            return wrapper;
         }
 
         const text = document.createElement("input");
@@ -132,7 +147,7 @@ export abstract class ToolkitSettingsMenu extends foundry.applications.api.Appli
 
     private _buildFooter(): HTMLElement {
         const footer = document.createElement("footer");
-        footer.classList.add("form-footer");
+        footer.classList.add("form-footer", "imaginaryfriend-toolkit-form-footer");
 
         const submit = document.createElement("button");
         submit.type = "submit";
