@@ -1,3 +1,7 @@
+##### 1.3.2
+
+- Fixed the token HUD condition filter input not appearing at all. It was previously inserted as an in-flow flex/grid row at the top of the icon grid, which depended on layout assumptions about the palette that didn't hold. It's now absolutely positioned, anchored to the palette's own top-left corner and floating above the icon grid at a fixed 200px width, independent of the grid's internal layout.
+
 ##### 1.3.1
 
 - Fixed the token HUD condition filter: it read the icon's `title`/`aria-label` attribute for the condition name, but Foundry's HUD markup puts the name in a sibling `.effect-name` div, so every non-empty search hid all icons. It also anchored to the wrong element, landing outside the conditions popout instead of above the icon grid. Now filters by `.effect-name` text and inserts as the first row inside the actual `.palette[data-palette="effects"]` container.

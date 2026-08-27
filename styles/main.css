@@ -30,12 +30,21 @@
     justify-content: center;
 }
 
+/* The effects palette is Foundry's own floating popout (already absolutely
+   positioned to sit above the clicked HUD icon), so it's a valid containing
+   block for our filter box to anchor against. Force overflow: visible in
+   case Foundry clips the palette's own box for rounded corners - otherwise
+   a wrapper positioned above the palette's top edge would be clipped away. */
+.palette[data-palette="effects"] {
+    overflow: visible;
+}
+
 .imaginaryfriend-toolkit-condition-filter-wrapper {
-    flex: 1 0 100%;
-    grid-column: 1 / -1;
-    width: 100%;
-    order: -1;
-    margin-bottom: 0.5rem;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 200px;
+    margin-bottom: 0.25rem;
 }
 
 .imaginaryfriend-toolkit-condition-filter {
